@@ -6,7 +6,7 @@ public class AutoSign {
 	
 	private int status = 1;
 	
-	private String pwpwd = "F8456125107";
+	private String pwpwd = "**********";
 	//ÓÃ»§Ãû
 	private String pwuser = "ansuanboy";
 	private String  verifyhash = "a77d00a0";
