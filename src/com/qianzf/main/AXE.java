@@ -11,7 +11,7 @@ import com.qianzf.util.FengChiLogin;
 public class AXE {
 	public static void main(String args[]){
 		System.out.println("--Log-- µÇÂ¼³ÌÐò¿ªÊ¼¡£------------------------");
-		DBHelper dh = new DBHelper("auto","root","f8456125107");
+		DBHelper dh = new DBHelper("auto","root","***********");
 		List<String[]> list = dh.execQuery("select uname, upassword,uwebsite from account");
 		for(String[] temp : list){
 				String username = temp[0];
