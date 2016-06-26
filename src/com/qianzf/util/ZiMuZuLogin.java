@@ -6,7 +6,7 @@ import java.util.Date;
  * 字幕组自动登陆程序
  * @author Dobby
  */
-public class AutoLogin {
+public class ZiMuZuLogin {
 	
 	private String account = "wodeshijie";
 	private String password = "f8456125107";
