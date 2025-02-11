@@ -3,21 +3,21 @@ package com.qianzf.util;
 import java.util.Date;
 
 /**
- * ×ÖÄ»×é×Ô¶¯µÇÂ½³ÌĞò
+ * å­—å¹•ç»„è‡ªåŠ¨ç™»é™†ç¨‹åº
  * @author Dobby
  */
 public class ZiMuZuLogin {
 	
 	private String account = "wodeshijie";
-	private String password = "f8456125107";
+	private String password = "";
 	private String remember = "0";
 	private String url_back = "http://www.zimuzu.tv/";
 	private int status = 1;
 	
 	public void loginNow(){
-		//ÉèÖÃÒ»ÏÂÅäÖÃÎÄ¼şÂ·¾¶
+		//è®¾ç½®ä¸€ä¸‹é…ç½®æ–‡ä»¶è·¯å¾„
 		//String path = "autologin.properties";
-		//´´½¨Ò»¸öur×ÊÔ´»ñÈ¡Àà
+		//åˆ›å»ºä¸€ä¸ªurèµ„æºè·å–ç±»
 		
 		UrlResource ur = new UrlResource();
 		/*
@@ -29,7 +29,7 @@ public class ZiMuZuLogin {
 		String url_back = po.acquireProperty("url_back");
 		String status  = po.acquireProperty("status");
 		
-		//Õâ¸öÊÇ¿ª¹Ø£¬ÉèÖÃÎª0Ê±£¬Í£Ö¹Ç©µ½£¡
+		//è¿™ä¸ªæ˜¯å¼€å…³ï¼Œè®¾ç½®ä¸º0æ—¶ï¼Œåœæ­¢ç­¾åˆ°ï¼
 		if(status!=null&&status.equals("0")){
 			return;
 		}
@@ -38,45 +38,45 @@ public class ZiMuZuLogin {
 		   remember==null||url_back==null||status==null){
 			
 			po.createProperty("url_back", "http://www.zimuzu.tv/");
-			po.createProperty("password","´Ë´¦¼üÈëÃÜÂë");
+			po.createProperty("password","æ­¤å¤„é”®å…¥å¯†ç ");
 			po.createProperty("remember", "1");
-			po.createProperty("account", "´Ë´¦¼üÈëÓÃ»§Ãû");
+			po.createProperty("account", "æ­¤å¤„é”®å…¥ç”¨æˆ·å");
 			po.createProperty("status", "1");
-			System.out.print("ÅäÖÃÎÄ¼ş²»ÕıÈ·»òÕß²»´æÔÚ£¬ÒÑ¾­×Ô¶¯ÖØĞÂÔÚµ±Ç°Ä¿Â¼ÏÂ´´½¨£¡ÇëÌîĞ´ÓÃ»§ÃûºÍÃÜÂë\r\n"
-					+ "ÅäÖÃÎÄ¼şÃû³Æ£º"+path+"\r\n\r\n");
+			System.out.print("é…ç½®æ–‡ä»¶ä¸æ­£ç¡®æˆ–è€…ä¸å­˜åœ¨ï¼Œå·²ç»è‡ªåŠ¨é‡æ–°åœ¨å½“å‰ç›®å½•ä¸‹åˆ›å»ºï¼è¯·å¡«å†™ç”¨æˆ·åå’Œå¯†ç \r\n"
+					+ "é…ç½®æ–‡ä»¶åç§°ï¼š"+path+"\r\n\r\n");
 		
 		}else{
 			*/
-			//ÇëÇó²ÎÊı£¬ÇëÇó²ÎÊıÓ¦¸ÃÊÇ name1=value1&name2=value2 µÄĞÎÊ½¡£
+			//è¯·æ±‚å‚æ•°ï¼Œè¯·æ±‚å‚æ•°åº”è¯¥æ˜¯ name1=value1&name2=value2 çš„å½¢å¼ã€‚
 			String params = "account="+account+"&password="+password+"&remember="+remember+
 					"&url_back="+url_back;
 			
-			//Î±ÔìÒ»ÏÂÌø×ª
+			//ä¼ªé€ ä¸€ä¸‹è·³è½¬
 			ur.setReferer("http://www.zimuzu.tv/user/login");
-			//·¢ËÍpostµÇÂ½ÇëÇó
+			//å‘é€postç™»é™†è¯·æ±‚
 			
 			try{
 			
 					String temp = ur.getUrlSource("http://www.zimuzu.tv/User/Login/ajaxLogin","POST",params);
 					
 					//String cookie = ur.getCookie();
-					//¼ì²éÓÃ»§ÃûºÍÃÜÂë
+					//æ£€æŸ¥ç”¨æˆ·åå’Œå¯†ç 
 					if(temp.charAt(10)=='1'){
-						System.out.println(account+"µÇÂ½³É¹¦!");
+						System.out.println(account+"ç™»é™†æˆåŠŸ!");
 					}else{
-						System.out.println(account+"µÇÂ½Ê§°Ü£¬Çë¼ì²éÕËºÅÃÜÂëÊÇ·ñÕıÈ·!");
+						System.out.println(account+"ç™»é™†å¤±è´¥ï¼Œè¯·æ£€æŸ¥è´¦å·å¯†ç æ˜¯å¦æ­£ç¡®!");
 						status = 0;
 						return;
 					}
 						
-					//Ç©µ½
+					//ç­¾åˆ°
 					temp = ur.getUrlSource("http://www.zimuzu.tv/user/login/getCurUserTopInfo","GET");
 					 
-					//¼ì²éÇ©µ½×´Ì¬
+					//æ£€æŸ¥ç­¾åˆ°çŠ¶æ€
 					if(temp.charAt(10)=='1'){
-						System.out.println(account+"Ç©µ½³É¹¦!");
+						System.out.println(account+"ç­¾åˆ°æˆåŠŸ!");
 					}else{
-						System.out.println(account+"Ç©µ½Ê§°Ü!");
+						System.out.println(account+"ç­¾åˆ°å¤±è´¥!");
 						status = 0;
 						return;
 					}
@@ -91,7 +91,7 @@ public class ZiMuZuLogin {
 					status = 1;
 			}catch(Exception e){
 					status = -1;
-					System.out.println(account+"Ç©µ½Ê§°Ü£¡");
+					System.out.println(account+"ç­¾åˆ°å¤±è´¥ï¼");
 					return;
 			}
 		}
@@ -99,16 +99,16 @@ public class ZiMuZuLogin {
 	public void autoLogin(){
 		int times = 0;
 		
-		//¿ªÊ¼×ÖÄ»×éµÇÂ½³ÌĞò
+		//å¼€å§‹å­—å¹•ç»„ç™»é™†ç¨‹åº
 		loginNow();
-		//³ö´íºó×Ô¶¯ÖØ¸´Èı´Î
+		//å‡ºé”™åè‡ªåŠ¨é‡å¤ä¸‰æ¬¡
 		while(status!=1){	
 			try {
 				Thread.sleep(2*1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			System.out.println("--Log--"+new Date().toString()+"--£ºµÇÂ½³ö´í£¡ÕıÔÚÖØÊÔµÚ"+(times+1)+"´Î¡£");
+			System.out.println("--Log--"+new Date().toString()+"--ï¼šç™»é™†å‡ºé”™ï¼æ­£åœ¨é‡è¯•ç¬¬"+(times+1)+"æ¬¡ã€‚");
 			loginNow();
 			times++;		
 			if(times == 3){
